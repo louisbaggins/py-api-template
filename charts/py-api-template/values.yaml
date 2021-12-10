@@ -1,0 +1,54 @@
+# Declare variables to be passed into your templates.
+fullnameOverride: {{py-api-template}}
+replicaCount: 1
+image:
+  repository: {{py-api-template}}
+  tag: #{Build.BuildId}#
+  pullPolicy: IfNotPresent
+  imagePullSecretName: acr-takeprivate-secret
+imagePullSecrets: []
+service:
+  type: ClusterIP
+  port: 80
+
+probes:
+  enabled: false
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+  hostName: hostName
+  tls:
+    secretName: secretName
+secrets: {}
+resources:
+  limits:
+    cpu: cpuLimit
+    memory: memoryLimit
+  requests:
+    cpu: cpuRequests
+    memory: memoryRequests
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+environment:
+  stage: staging
+
+appSettings:
+  configMap: {{py-api-template}}
+  path: /app/src/configs/configs.json
+  subPath: configs.json
+
+autoscale:
+  minReplicas: 1
+  maxReplicas: 3
+  averageCPUUtilization: 80
+
+team: dslab
+
+annotations: {}
