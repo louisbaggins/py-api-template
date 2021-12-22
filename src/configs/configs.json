@@ -3,8 +3,9 @@
         "server-url": "{{server-url}}",
         "api-key": "{{api-key}}"
     },
-    "bot-config": {},
-    "time-config": {
-        "timezone": "-03:00"
+    "bot-config": {
+        "authorization-key": "{{authorization-key}}",
+        "access-key": "{{access-key}}",
+        "bot-id": "{{bot-id}}"
     }
 }

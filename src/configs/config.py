@@ -1,10 +1,9 @@
-from configs import SeqConfig, TimeConfig
-from helpers import singleton
+from .seq_config import SeqConfig
+from .bot_config import BotConfig
 from json import load
 
 
-@singleton
-class Configs:
+class Config():
 
     def __init__(self):
         with open('./src/configs/configs.json', 'r') as config_data:
@@ -13,4 +12,4 @@ class Configs:
 
     def append_configs(self):
         self.seq_config = SeqConfig(self.raw_configs['seq'])
-        self.time_config = TimeConfig(self.raw_configs['time-config'])
+        self.bot_config = BotConfig(self.raw_configs['bot-config'])

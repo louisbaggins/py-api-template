@@ -1,1 +1,1 @@
-from services.seq_service import SeqService
+from .seq_service import SeqService

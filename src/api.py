@@ -1,13 +1,13 @@
 from routes import PingRoute
-from flask_restful import Resource, Api
-from services import SeqService
+from flask_restful import Api
+from service_providers import Clients
 from waitress import serve
 from flask import Flask
 from os import environ
 from flask_swagger_ui import get_swaggerui_blueprint
 
-
-SeqService().setup()
+Clients()
+Clients.seq_service().setup()
 
 app = Flask(__name__)
 api = Api(app)
@@ -19,7 +19,7 @@ SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
     SWAGGER_URL,
     API_URL,
     config={
-        'app_name': "Seans-Python-Flask-REST-Boilerplate"
+        'app_name': "py-api-template"
     }
 )
 

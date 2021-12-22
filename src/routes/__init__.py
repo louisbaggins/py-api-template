@@ -1,1 +1,1 @@
-from routes.ping_route import PingRoute
+from .ping_route import PingRoute

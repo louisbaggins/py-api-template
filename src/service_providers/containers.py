@@ -1,10 +1,11 @@
 from dependency_injector import providers, containers
-from configs import configs
+from ..configs import Config
+from ..services import SeqService
 
 
 class Settings(containers.DeclarativeContainer):
-    pass
+    config = providers.Singleton(Config)
 
 
 class Clients(containers.DeclarativeContainer):
-    pass
+    seq_service = providers.Singleton(SeqService, Settings.config)

@@ -1,0 +1,40 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "description": "Python api template",
+        "version": "1.0.0",
+        "title": "py-api-template",
+        "contact": {
+            "email": "luisc@take.net"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "components": {
+        "schemas": {}
+    },
+    "tags": [
+        {
+            "name": "Ping",
+            "description": "Verify API availability"
+        }
+    ],
+    "paths": {
+        "/ping": {
+            "get": {
+                "tags": [
+                    "Ping"
+                ],
+                "summary": "Return pong if API is on",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {}
+                    }
+                }
+            }
+        }
+    }
+}
