@@ -14,9 +14,12 @@ seqlog = "*"
 requests = "*"
 dependency-injector = "*"
 flask-swagger-ui = "*"
+pytest = "*"
+pytest-mock = "*"
 
 [requires]
 python_version = "3.8"
 
 [scripts]
 start = "python src/api.py"
+test = "pytest --cache-clear tests/"
