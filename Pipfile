@@ -1,0 +1,27 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "*"
+autopep8 = "*"
+
+[packages]
+flask = "*"
+flask-restful = "*"
+seqlog = "*"
+requests = "*"
+dependency-injector = "*"
+flask-swagger-ui = "*"
+pytest = "*"
+pytest-mock = "*"
+flake8 = "*"
+pytest-cov = "*"
+
+[requires]
+python_version = "3.8"
+
+[scripts]
+start = "python api.py"
+test = "pytest --cache-clear tests/"

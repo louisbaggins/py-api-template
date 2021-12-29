@@ -1,0 +1,11 @@
+{
+    "seq": {
+        "server-url": "{{server-url}}",
+        "api-key": "{{api-key}}"
+    },
+    "bot-config": {
+        "authorization-key": "{{authorization-key}}",
+        "access-key": "{{access-key}}",
+        "bot-id": "{{bot-id}}"
+    }
+}

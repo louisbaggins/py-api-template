@@ -1,0 +1,8 @@
+{
+    "python.pythonPath": "D:\\Users\\luisc\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}

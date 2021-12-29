@@ -1,0 +1,24 @@
+﻿apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ template "{{py-api-template}}.fullname" . }}-{{ .Values.environment.stage }}
+  labels:
+    app: {{ template "{{py-api-template}}.name" . }}
+    chart: {{ template "{{py-api-template}}.chart" . }}
+    draft: {{ default "draft-app" .Values.draft }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ template "{{py-api-template}}.fullname" . }}-{{ .Values.environment.stage }}
+  minReplicas: {{ .Values.autoscale.minReplicas }}
+  maxReplicas: {{ .Values.autoscale.maxReplicas }}
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.autoscale.averageCPUUtilization }}
