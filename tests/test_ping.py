@@ -1,4 +1,4 @@
-from pytest import fixture, mark
+from pytest import fixture
 from pytest_mock import MockerFixture
 from src import PingRoute
 
